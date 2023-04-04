@@ -1,14 +1,15 @@
 // ==UserScript==
-// @name         Farm Mapa
-// @namespace
-// @version      0.1
-// @description  farma as aldeias pela aba do mapa usando o AS no modelo --->A<---
-// @author       Victor Garé
-// @include      https://**&screen=map**
-// @require http://code.jquery.com/jquery-1.12.4.min.js
-// @downloadURL https://raw.githubusercontent.com/victorgare/tribalwars/master/UserScript/FarmMapa.user.js
-// @updateURL   https://github.com/victorgare/tribalwars/raw/master/UserScript/FarmMapa.user.js
-// @grant        none
+
+// @name            Map Farm
+// @version         1.0
+// @description     Loot barbarian villages directly across the game map using LA in the "A" model, from closest to furthest. Use the map in 30x30 for best efficiency.
+// @author          Caio Rodrigo
+// @include         https://**&screen=map**
+// @require         http://code.jquery.com/jquery-1.12.4.min.js
+// @downloadURL     https://github.com/caiorodrigodev/TWScripts/blob/main/mapFarmEvolved.js
+// @updateURL       https://github.com/caiorodrigodev/TWScripts/blob/main/mapFarmEvolved.js
+// @icon            https://www.google.com/s2/favicons?sz=64&domain=tribalwars.com.br
+
 // ==/UserScript==
 
 "use strict";
