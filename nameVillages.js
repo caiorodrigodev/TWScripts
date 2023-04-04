@@ -498,7 +498,7 @@ twcheese.renameVillages = function(config, mode) {
                         name += continent;
                     }
                     if (config[j].name == 'random_text') {
-                        var namePool = ['Cheese', 'Cheesy', 'Pickle', 'Noodle', 'Mc', 'Mega', 'Ultra', 'Super', 'Cuddle', 'Hug', 'Merge', 'Princess', 'Queen', 'O', 'Snappy', 'Dandy', 'Zippy', 'Fiddle', 'Harp', 'Chimes', 'Mooo', 'Quack', 'Oink', 'Penguin', 'Giraffe', 'Hippo', 'Sandals', 'Boots', 'Heels', 'Ninja', 'Pirate', 'Town', 'City', 'Burg', 'polis', 'ville', 'Land', 'Realm', 'Wand', 'Cape', 'Hat', 'Tickle', 'Smack', 'Kick', 'Armor', 'Sword', 'Shield', 'Happy', 'Sad', 'Grumpy', 'Forest', 'Lake', 'Mountain', 'Swamp', 'Fortress', 'Castle', 'Keep', 'Palace', 'Hall', 'Shiny', 'Dull', 'Hidden', 'King', 'Knight', 'Enchanted', 'Court', 'Bridge', 'Kingdom', 'Manor', 'Tower', 'Royal', 'Peasant', 'Unicorn', 'Dragon', 'Nightmare', 'Dark', 'Light', 'Red', 'Blue', 'Yellow', 'Green', 'Orange', 'Purple', 'Pink', 'Wood', 'Stone', 'Stick', 'Straw', 'Brick', 'Steel', 'Iron', 'Gold', 'Forge', 'Hut', 'Betrayal', 'Honor', 'Fellowship', 'Gardening', 'Cabbage', 'Potato', 'Pine', 'Oak', 'Bamboo', 'Flower', 'Daisy', 'Rose', 'Pansy', 'Fearless', 'Brave', 'Enduring', 'Fast', 'Slow', 'Steady', 'Strong'];
+                        var namePool = ["Odin", "Thor", "Freyja", "Freyr", "Loki", "Balder", "Tyr", "Heimdall", "Frigg", "Njord", "Skadi", "Idun", "Bragi", "Gefjon", "Ullr", "Sif", "Mimir", "Hoenir", "Vili", "Ve", "Forseti", "Aegir", "Ran", "Hel", "Eir", "Lofn", "Sjofn", "Hlin", "Syn", "Vor", "Gna", "Fulla", "Vali", "Vidar", "Kvasir", "Gullveig", "Fjorgyn", "Jormungandr", "Fenrir", "Sleipnir", "Elli", "Skoll", "Hati", "Garmr", "Ratatoskr", "Yggdrasil", "Norns", "Fafnir", "Sigurd", "Svadilfari", "Huginn", "Muninn", "Geri", "Freki", "Andhrimnir", "Billingr", "Dagr", "Nott", "Surt", "Thokk", "Ymir", "Laufey", "Gerd", "Angrboda", "Sigyn", "Audumla", "Mengloth", "Hrungnir", "Thrymr", "Grid", "Hreidmar", "Utgard-Loki", "Alvaldi", "Modi", "Magni", "Hjuki", "Bil", "Veor", "Svipdagr", "Volund", "Rindr", "Groa", "Nanna", "Narfi", "Valr", "Hermod", "Odr", "Var", "Fjolnir", "Gjalp", "Greip", "Thrud", "Atla", "Hrimthursar", "Bestla", "Bolthorn", "Farbauti", "Byleistr", "Helblindi", "Kari"];
                         for (var k = 0; k < 3; k++) {
                             randomInt = Math.round(Math.random() * (namePool.length - 1));
                             name += namePool[randomInt];
@@ -587,7 +587,7 @@ $.post(ScriptAPI.url, script);
 
 if (game_data.screen == 'overview_villages' || canNameVillages) {
     twcheese.createNamerGUI();
-    var canNameVillages = true; //hack for bug where renaming villages changes game_data.screen
+    var canNameVillages = true; // hack for bug where renaming villages changes game_data.screen
 } else {
-    UI.InfoMessage('Use this on one of the village overviews.', 5000, 'error');
+    UI.InfoMessage('O script precisa ser utilizado na aba <a href="/game.php?screen=overview_villages&mode=combined" class="btn">Visualização geral</a>', 5000, 'Erro');
 }
