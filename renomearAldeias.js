@@ -571,8 +571,7 @@ twcheese.renameVillages = function(config, mode) {
 var script = {
     scriptname: 'Renomear aldeias',
     version: 1.01,
-    author: 'Zeca Paugordinho',
-    email: 'caiozinho12@gmail.com',
+    author: 'Megalodon',
     broken: false
 };
 $.post(ScriptAPI.url, script);
@@ -580,6 +579,6 @@ $.post(ScriptAPI.url, script);
 if (game_data.screen == 'overview_villages' || canNameVillages) {
     twcheese.createNamerGUI();
     var canNameVillages = true;
-} else {
-    UI.InfoMessage('Use isso na aba de Visualizações.', 5000, 'Erro');
+} 	else {
+    UI.InfoMessage('Use esse script em <a href="/game.php?screen=overview_villages&mode=combined" class="btn">Visualizações gerais</a>.',5000,'error');
 }
