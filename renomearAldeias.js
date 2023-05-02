@@ -1,8 +1,8 @@
 // renomearAldeias.js
 // Renomeia as aldeias do jogador nas visões gerais (screen=overview_villages)
-// autor: Zeca Paugordinho (caiozinho12@gmail.com)
+// Autor: Megalodon
 //
-// Copyright (C) 2021 Zeca Paugordinho See More
+// Copyright © 2023 Megalodon
 //
 
 playerName = document.querySelector("#menu_row > td:nth-child(11) > table > tbody > tr:nth-child(1) > td > a").textContent;
@@ -40,7 +40,7 @@ twcheese.createNamerGUI = function() {
     contentContainer.appendChild(titleBar);
 
     var narcismElement = document.createElement('span');
-    narcismElement.innerHTML = 'Criado por <a href="https://forum.tribalwars.com.br/index.php?members/zeca-paugordinho.113660/follow" target="_blank">zeca.paugordinho</a>';
+    narcismElement.innerHTML = 'Criado por <a href="https://forum.tribalwars.com.br/index.php?members/megalodon.113660/follow" target="_blank">Megalodon</a>';
     narcismElement.style.fontSize = '8px';
     narcismElement.style.fontStyle = 'normal';
     narcismElement.style.fontWeight = 'normal';
@@ -114,8 +114,8 @@ twcheese.createNamerGUI = function() {
                 nome: 'number_villages',
                 descrição: 'Número de aldeias',
                 defaultLabel: '0',
-                startNum: '0',
-                dígitos: '4',
+                startNum: '1',
+                dígitos: '3',
                 exemplo: '',
                 ativado: true
             },
@@ -180,8 +180,6 @@ twcheese.createNamerGUI = function() {
             options[i].label = options[i].defaultLabel;
         }
     }
-
-
 
     content.generateExample = function() {
         var example = '';
@@ -258,7 +256,7 @@ twcheese.createNamerGUI = function() {
         }
     }
 
-    /*==== preview ====*/
+    /*==== Pré-visualizar ====*/
     var preview = document.createElement('span');
     preview.id = 'twcheese_name_preview';
     preview.innerHTML = 'blahblahblah';
@@ -266,7 +264,7 @@ twcheese.createNamerGUI = function() {
     content.appendChild(preview);
 
 
-    /*==== config ====*/
+    /*==== Configurações ====*/
     var optionsTable = document.createElement('table');
     optionsTable.id = 'twcheese_config_table';
 
@@ -353,11 +351,11 @@ twcheese.createNamerGUI = function() {
 
     content.appendChild(optionsTable);
 
-    /*==== mode ====*/
+    /*==== Modo ====*/
     var modeForm = document.createElement('form');
     modeForm.id = 'twcheese_name_mode_form';
 
-    /*==== overwrite ====*/
+    /*==== Substituir ====*/
     overwriteButton = document.createElement('input');
     overwriteButton.id = 'twcheese_radio_overwrite';
     overwriteButton.type = 'radio';
@@ -367,7 +365,7 @@ twcheese.createNamerGUI = function() {
     modeForm.appendChild(overwriteButton);
     modeForm.innerHTML += 'Substituir nomes atuais';
 
-    /*==== prepend ====*/
+    /*==== Antes ====*/
     prependButton = document.createElement('input');
     prependButton.id = 'twcheese_radio_prepend';
     prependButton.type = 'radio';
@@ -375,9 +373,9 @@ twcheese.createNamerGUI = function() {
     prependButton.value = 'prepend';
     prependButton.style.marginLeft = '20px';
     modeForm.appendChild(prependButton);
-    modeForm.innerHTML += 'Anexar antes dos nomes atuais';
+    modeForm.innerHTML += 'Adicionar antes dos nomes atuais';
 
-    /*==== append ====*/
+    /*==== Após ====*/
     appendButton = document.createElement('input');
     appendButton.id = 'twcheese_radio_append';
     appendButton.type = 'radio';
@@ -385,23 +383,23 @@ twcheese.createNamerGUI = function() {
     appendButton.value = 'append';
     appendButton.style.marginLeft = '20px';
     modeForm.appendChild(appendButton);
-    modeForm.innerHTML += 'Anexar após os nomes atuais.';
+    modeForm.innerHTML += 'Adicionar após os nomes atuais.';
 
     content.appendChild(modeForm);
 
 
-    /*==== buttons ====*/
+    /*==== Botões ====*/
     var buttonDiv = document.createElement('div');
     buttonDiv.align = 'center';
     buttonDiv.style.padding = '10px';
 
-    /*==== save button ====*/
+    /*==== Definir como padrão ====*/
     var saveButton = document.createElement('button');
     saveButton.onclick = function() { content.saveConfig(); };
     saveButton.innerHTML = 'Definir como padrão';
     buttonDiv.appendChild(saveButton);
 
-    /*==== confirm button ====*/
+    /*==== Começar a renomear aldeias ====*/
     var confirmButton = document.createElement('a');
     confirmButton.className = 'btn-default btn-green';
     confirmButton.innerHTML = 'Começar a renomear aldeias';
@@ -421,7 +419,7 @@ twcheese.createNamerGUI = function() {
 
     content.preview();
 
-    /*==== apply default mode ====*/
+    /*==== Aplicar modo padrão ====*/
     content.mode = 'overwrite';
     if (localStorage.getItem('twcheese_nameVillagesMode'))
         content.mode = localStorage.getItem('twcheese_nameVillagesMode');
@@ -440,10 +438,10 @@ twcheese.calculateDistance = function(village1, village2) {
     return Math.sqrt((village1[0] - village2[0]) * (village1[0] - village2[0]) + (village1[1] - village2[1]) * (village1[1] - village2[1]));
 };
 
-/*==== renamer ====*/
+/*==== Renomeador ====*/
 twcheese.renameVillages = function(config, mode) {
     try {
-        $('.quickedit-vn').each(function(key, village) { //each village
+        $('.quickedit-vn').each(function(key, village) { // Cada aldeia
             var villageId = $(village).attr('data-id');
             var $label = $(village).find('.quickedit-label');
             var originalFullName = $label.text();
@@ -455,7 +453,7 @@ twcheese.renameVillages = function(config, mode) {
             var coordY = String(coordinates.match(/\|[0-9]{1,}/)).substring(1);
 
             var name = '';
-            for (var j = 0; j < config.length; j++) //each configuration option
+            for (var j = 0; j < config.length; j++) // Cada opção de configuração
             {
                 if (config[j].enabled) {
 
@@ -482,7 +480,7 @@ twcheese.renameVillages = function(config, mode) {
                         name += continent;
                     }
 
-                    // Setar um nome aleatório
+                    // Setar um nome aleatório (Com nomes de Deuses nórdicos)
                     if (config[j].name == 'random_text') {
                         var namePool = ["Odin", "Thor", "Freyja", "Freyr", "Loki", "Balder", "Tyr", "Heimdall", "Frigg", "Njord", "Skadi", "Idun", "Bragi", "Gefjon", "Ullr", "Sif", "Mimir", "Hoenir", "Vili", "Ve", "Forseti", "Aegir", "Ran", "Hel", "Eir", "Lofn", "Sjofn", "Hlin", "Syn", "Vor", "Gna", "Fulla", "Vali", "Vidar", "Kvasir", "Gullveig", "Fjorgyn", "Jormungandr", "Fenrir", "Sleipnir", "Elli", "Skoll", "Hati", "Garmr", "Ratatoskr", "Yggdrasil", "Norns", "Fafnir", "Sigurd", "Svadilfari", "Huginn", "Muninn", "Geri", "Freki", "Andhrimnir", "Billingr", "Dagr", "Nott", "Surt", "Thokk", "Ymir", "Laufey", "Gerd", "Angrboda", "Sigyn", "Audumla", "Mengloth", "Hrungnir", "Thrymr", "Grid", "Hreidmar", "Utgard-Loki", "Alvaldi", "Modi", "Magni", "Hjuki", "Bil", "Veor", "Svipdagr", "Volund", "Rindr", "Groa", "Nanna", "Narfi", "Valr", "Hermod", "Odr", "Var", "Fjolnir", "Gjalp", "Greip", "Thrud", "Atla", "Hrimthursar", "Bestla", "Bolthorn", "Farbauti", "Byleistr", "Helblindi", "Kari"];
                         for (var k = 0; k < 3; k++) {
