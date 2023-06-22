@@ -3,13 +3,6 @@
  *	author: Nick Toby (cheesasaurus@gmail.com)
  *	game compatability:	version	20017 8.20
  
- ==== changelog ====
- * 7 July 2013	- released
- * 15 July 2013 - added sector option (continent:sector:village)
- * 8 August 2013 - added digits specification for number option - changed a lot of the procedures to account for deviation from the original layout
- * 18 march 2014 - updated for version 8.20 quickedit renaming
- * 22 march 2014 - added a 'direction' option
- 
  ==== license ====
  *	Copyright (C) 2013  Nick Toby
 
